@@ -118,6 +118,11 @@
       "CityEvents.Infra.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CityEvents.Service": "1.0.0",
+          "Dapper": "2.0.123",
+          "MySqlConnector": "2.2.5"
+        },
         "compile": {
           "bin/placeholder/CityEvents.Infra.Data.dll": {}
         },
@@ -323,8 +328,6 @@
     "net6.0": [
       "CityEvents.Infra.Data >= 1.0.0",
       "CityEvents.Service >= 1.0.0",
-      "Dapper >= 2.0.123",
-      "MySqlConnector >= 2.2.5",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -379,14 +382,6 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "Dapper": {
-            "target": "Package",
-            "version": "[2.0.123, )"
-          },
-          "MySqlConnector": {
-            "target": "Package",
-            "version": "[2.2.5, )"
-          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"

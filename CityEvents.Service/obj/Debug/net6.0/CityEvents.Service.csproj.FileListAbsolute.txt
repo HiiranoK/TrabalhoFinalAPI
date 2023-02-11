@@ -1,0 +1,12 @@
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\CityEvents.Service.csproj.AssemblyReference.cache
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\CityEvents.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\CityEvents.Service.AssemblyInfoInputs.cache
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\CityEvents.Service.AssemblyInfo.cs
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\CityEvents.Service.csproj.CoreCompileInputs.cache
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\bin\Debug\net6.0\CityEvents.Service.deps.json
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\bin\Debug\net6.0\CityEvents.Service.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\bin\Debug\net6.0\CityEvents.Service.pdb
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\CityEvents.Service.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\refint\CityEvents.Service.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\CityEvents.Service.pdb
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Service\obj\Debug\net6.0\ref\CityEvents.Service.dll

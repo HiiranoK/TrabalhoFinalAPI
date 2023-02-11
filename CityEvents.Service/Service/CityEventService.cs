@@ -8,37 +8,8 @@ using System.Threading.Tasks;
 
 namespace CityEvents.Service.Service
 {
-    public class CityEventService : ICityEventService
+    public class CityEventService
     {
-
-        public void AdicionarEvento(CityEventsEntity evento)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ConsultaPorLocalEData(string local, DateTime data)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ConsultaPorPrecoEData(double precoMin, double precoMax, DateTime data)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ConsultaPorTitulo(string titulo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EditarEvento(CityEventsEntity evento, int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExcluirEvento(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

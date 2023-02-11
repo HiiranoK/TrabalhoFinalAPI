@@ -1,0 +1,15 @@
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\CityEvents.Infra.Data.csproj.AssemblyReference.cache
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\CityEvents.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\CityEvents.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\CityEvents.Infra.Data.AssemblyInfo.cs
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\CityEvents.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\bin\Debug\net6.0\CityEvents.Infra.Data.deps.json
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\bin\Debug\net6.0\CityEvents.Infra.Data.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\bin\Debug\net6.0\CityEvents.Infra.Data.pdb
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\bin\Debug\net6.0\CityEvents.Service.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\bin\Debug\net6.0\CityEvents.Service.pdb
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\CityEvents.Infra.Data.csproj.CopyComplete
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\CityEvents.Infra.Data.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\refint\CityEvents.Infra.Data.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\CityEvents.Infra.Data.pdb
+C:\Users\Richard\source\repos\CityEvents\CityEvents.Infra.Data\obj\Debug\net6.0\ref\CityEvents.Infra.Data.dll

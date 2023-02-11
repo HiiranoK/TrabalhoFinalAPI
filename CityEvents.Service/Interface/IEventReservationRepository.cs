@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace CityEvents.Service.Interface
 {
-    public interface IEventReservationService
+    public interface IEventReservationRepository
     {
-        void IncluiReserva(EventReservationEntity reserva);
+        bool AdicionarReserva(EventReservationEntity reserva, int idEvento);
 
-        void EditarQuantidadeReserva(int id, int quantidade);
+        bool EditarQuantidadeReserva(int id, int quantidade);
 
-        void DeletaReserva(int id);
+        bool DeletaReserva(int id);
 
         void ConsultaReserva(string nome, string tituloEvento);
     }
