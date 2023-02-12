@@ -17,20 +17,20 @@ namespace CityEvents.Infra.Data.Repository
         {
              _stringConnection = Environment.GetEnvironmentVariable("DATABASE_CONFIG");
         }
-        public CityEventsEntity AdicionarEvento(CityEventsEntity evento)
+        public bool AdicionarEvento(CityEventsEntity evento)
         {
-            string query = @"INSERT INTO CityEvent(title,description, dateHourEvent, local, address, price) 
-             VALUES (@title, @description, @dateHourEvent, @local, @address, @price)";
+            string query = @"INSERT INTO CityEvent(title,description, dateHourEvent, local, address, price,status) 
+             VALUES (@title, @description, @dateHourEvent, @local, @address, @price,true)";
             DynamicParameters parametros = new(evento);
 
             using MySqlConnection conn = new(_stringConnection);
-            conn.Execute(query, parametros);
-            return evento;
+            int linhasAfetadas = conn.Execute(query, parametros);
+            return linhasAfetadas > 0;
         }
 
         public List<CityEventsEntity> ConsultaPorLocalEData(string local, DateTime data)
         {
-            string query = @"SELECT * FROM CityEvent where local = @local and data = @data";
+            string query = @"SELECT * FROM CityEvent where local = @local and DATE(dateHourEvent) = @data";
             DynamicParameters parametros = new();
             parametros.Add ("local", local);
             parametros.Add("data", data);
@@ -41,7 +41,7 @@ namespace CityEvents.Infra.Data.Repository
 
         public List<CityEventsEntity> ConsultaPorPrecoEData(double precoMin, double precoMax, DateTime data)
         {
-            string query = "SELECT * FROM CityEvent where dateHourEvent = @data and price between @precoMin and @precoMax";
+            string query = "SELECT * FROM CityEvent where DATE(dateHourEvent) = @data and price between @precoMin and @precoMax";
             DynamicParameters parametros = new();
             parametros.Add("data", data);
             parametros.Add("precoMin", precoMin);
@@ -52,10 +52,10 @@ namespace CityEvents.Infra.Data.Repository
 
         public List<CityEventsEntity> ConsultaPorTitulo(string titulo)
         {
-            string query = "SELECT * FROM CityEvent where title like @%titulo%";
+            string query = "SELECT * FROM CityEvent where title like @titulo";
+             titulo = $"%{titulo}%";
             DynamicParameters parametros = new();
-            parametros.Add("titulo",titulo);
-            //parametros.Add("titulo", $"%{titulo}%");
+            parametros.Add("titulo", titulo);
             using MySqlConnection conn = new(_stringConnection);
             return conn.Query<CityEventsEntity>(query, parametros).ToList();
         }

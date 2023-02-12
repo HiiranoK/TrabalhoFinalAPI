@@ -9,7 +9,7 @@ namespace CityEvents.Service.Interface
 {
     public interface ICityEventRepository
     {
-        CityEventsEntity AdicionarEvento(CityEventsEntity evento);
+        bool AdicionarEvento(CityEventsEntity evento);
 
         bool EditarEvento(CityEventsEntity evento, int id);
 
