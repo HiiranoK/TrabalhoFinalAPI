@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ytbuEIhZ7Au4Mq1V5C78UyqKxOEQFI6x27a48/DmbZ3KhfeiO0gydLvqqWBgf77HkUsgUnqn1kd6TZkPo7UuQA==",
+  "dgSpecHash": "9MPl5lsrcw6y/I4n1Xhofzu5/9LHLq76640IxFkSwqlUoGoz//qw05k4cw/lzIt7HEa5JuI5CSj8m+LPi7NMEg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Richard\\source\\repos\\CityEvents\\CityEvents.Service\\CityEvents.Service.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Richard\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Richard\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

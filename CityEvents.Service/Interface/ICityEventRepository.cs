@@ -9,18 +9,19 @@ namespace CityEvents.Service.Interface
 {
     public interface ICityEventRepository
     {
-        bool AdicionarEvento(CityEventsEntity evento);
+        Task<bool> AdicionarEvento(CityEventEntity evento);
 
-        bool EditarEvento(CityEventsEntity evento, int id);
+        Task<bool> EditarEvento(CityEventEntity evento, int id);
 
-        bool ExcluirEvento(int id);
+        Task<bool> ExcluirEvento(int id);
 
-        bool InativarEvento(int id);
+        Task<bool> InativarEvento(int id);
 
-        List<CityEventsEntity> ConsultaPorTitulo(string titulo);
+        Task<List<CityEventEntity>> ConsultaPorTitulo(string titulo);
 
-        List<CityEventsEntity> ConsultaPorLocalEData(string local, DateTime data);
+        Task<IEnumerable<CityEventEntity>> ConsultaPorLocalEData(string local, DateTime data);
 
-        List<CityEventsEntity> ConsultaPorPrecoEData(double precoMin, double precoMax, DateTime data);
+        Task<List<CityEventEntity>> ConsultaPorPrecoEData(decimal precoMin, decimal precoMax, DateTime data);
+        Task<bool> ConsultaReservasNoEvento(int idEvento);
     }
 }

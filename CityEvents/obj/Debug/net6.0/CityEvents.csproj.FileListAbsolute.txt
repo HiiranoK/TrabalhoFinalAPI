@@ -35,3 +35,13 @@ C:\Users\Richard\source\repos\CityEvents\CityEvents\obj\Debug\net6.0\refint\City
 C:\Users\Richard\source\repos\CityEvents\CityEvents\obj\Debug\net6.0\CityEvents.pdb
 C:\Users\Richard\source\repos\CityEvents\CityEvents\obj\Debug\net6.0\CityEvents.genruntimeconfig.cache
 C:\Users\Richard\source\repos\CityEvents\CityEvents\obj\Debug\net6.0\ref\CityEvents.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\obj\Debug\net6.0\CityEvents.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Richard\source\repos\CityEvents\CityEvents\bin\Debug\net6.0\System.Security.Permissions.dll

@@ -1,4 +1,5 @@
-﻿using CityEvents.Service.Entity;
+﻿using CityEvents.Service.DTO;
+using CityEvents.Service.Entity;
 using CityEvents.Service.Interface;
 using Dapper;
 using MySqlConnector;
@@ -17,29 +18,28 @@ namespace CityEvents.Infra.Data.Repository
         {
              _stringConnection = Environment.GetEnvironmentVariable("DATABASE_CONFIG");
         }
-        public bool AdicionarEvento(CityEventsEntity evento)
+        public async Task<bool> AdicionarEvento(CityEventEntity evento)
         {
             string query = @"INSERT INTO CityEvent(title,description, dateHourEvent, local, address, price,status) 
              VALUES (@title, @description, @dateHourEvent, @local, @address, @price,true)";
             DynamicParameters parametros = new(evento);
 
             using MySqlConnection conn = new(_stringConnection);
-            int linhasAfetadas = conn.Execute(query, parametros);
+            int linhasAfetadas =await conn.ExecuteAsync(query, parametros);
             return linhasAfetadas > 0;
         }
 
-        public List<CityEventsEntity> ConsultaPorLocalEData(string local, DateTime data)
+        public async Task<IEnumerable<CityEventEntity>> ConsultaPorLocalEData(string local, DateTime data)
         {
             string query = @"SELECT * FROM CityEvent where local = @local and DATE(dateHourEvent) = @data";
             DynamicParameters parametros = new();
             parametros.Add ("local", local);
             parametros.Add("data", data);
             using MySqlConnection conn = new(_stringConnection);
-
-            return conn.Query<CityEventsEntity>(query, parametros).ToList();
+            return ( conn.Query<CityEventEntity>(query, parametros)).ToList();
         }
 
-        public List<CityEventsEntity> ConsultaPorPrecoEData(double precoMin, double precoMax, DateTime data)
+        public async Task<List<CityEventEntity>> ConsultaPorPrecoEData(decimal precoMin, decimal precoMax, DateTime data)
         {
             string query = "SELECT * FROM CityEvent where DATE(dateHourEvent) = @data and price between @precoMin and @precoMax";
             DynamicParameters parametros = new();
@@ -47,59 +47,54 @@ namespace CityEvents.Infra.Data.Repository
             parametros.Add("precoMin", precoMin);
             parametros.Add("precoMax", precoMax);
             using MySqlConnection conn = new(_stringConnection);
-            return conn.Query<CityEventsEntity>(query, parametros).ToList();
+            return ( conn.Query<CityEventEntity>(query, parametros)).ToList();
         }
 
-        public List<CityEventsEntity> ConsultaPorTitulo(string titulo)
+        public async Task<List<CityEventEntity>> ConsultaPorTitulo(string titulo)
         {
             string query = "SELECT * FROM CityEvent where title like @titulo";
              titulo = $"%{titulo}%";
             DynamicParameters parametros = new();
             parametros.Add("titulo", titulo);
             using MySqlConnection conn = new(_stringConnection);
-            return conn.Query<CityEventsEntity>(query, parametros).ToList();
+            return ( conn.Query<CityEventEntity>(query, parametros)).ToList();
         }
 
-        public bool EditarEvento(CityEventsEntity evento, int id)
+        public async Task<bool> EditarEvento(CityEventEntity evento, int id)
         {
-            string query = "UPDATE CityEvent set title=@title,description=@description, " +
-                "dateHourEvent=@dateHourEvent, local=@local, address=@address, price=@price where idEvent=@id";
+            string query = "UPDATE CityEvent set title=@title,description=@description, dateHourEvent=@dateHourEvent, local=@local, address=@address, price=@price where idEvent=@id";
             DynamicParameters parametros = new(evento);
             parametros.Add("id", id);
             using MySqlConnection conn = new(_stringConnection);
-            int linhasAfetadas = conn.Execute(query, parametros);
+            int linhasAfetadas = await conn.ExecuteAsync(query, parametros);
             return linhasAfetadas > 0;
         }
 
-        public bool ExcluirEvento(int id)
+        public async Task<bool> ExcluirEvento(int id)
         {
-            string query = "DELETE FROM CityEvent where idEvent = @id";
+            string query = "DELETE FROM CityEvent WHERE idEvent = @id";
             DynamicParameters parametros = new();
             parametros.Add("id", id);
             using MySqlConnection conn = new(_stringConnection);
-            int linhasAfetadas = conn.Execute(query, parametros);
+            int linhasAfetadas = await conn.ExecuteAsync(query, parametros);
             return linhasAfetadas > 0;
         }
-
-        public bool InativarEvento(int id)
+        public async Task<bool> InativarEvento(int id)
         {
-            string query = "UPDATE CityEvent set Status = false";
+            string query = "UPDATE CityEvent set status = false WHERE IdEvent = @id";
             DynamicParameters parametros = new();
             parametros.Add("id", id);
             using MySqlConnection conn = new(_stringConnection);
-            int linhasAfetadas = conn.Execute(query, parametros);
+            int linhasAfetadas = await conn.ExecuteAsync(query, parametros);
             return linhasAfetadas > 0;
         }
-
-        //public bool ExcluirInativarEvento(int id)
-        //{
-        //    string queryExclusao = "DELETE FROM CityEvent where idEvent = @id";
-        //    string queryEdicao = "UPDATE CityEvent set Status = false";
-        //    DynamicParameters parametros = new();
-        //    parametros.Add("id", id);
-        //    using MySqlConnection conn = new(_stringConnection);
-        //    int linhasAfetadas = conn.Execute(query, parametros);
-        //    return linhasAfetadas > 0;
-        //}
+        public async Task<bool> ConsultaReservasNoEvento(int idEvento)
+        {
+            string query = "SELECT * FROM EventReservation  WHERE idEvent = @idEvento";
+            DynamicParameters parametros = new();
+            parametros.Add("idEvento", idEvento);
+            using MySqlConnection conn = new(_stringConnection);
+            return conn.QueryFirstOrDefault(query, parametros) == null;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CityEvents.Service.Entity;
+﻿using CityEvents.Service.DTO;
+using CityEvents.Service.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,11 @@ namespace CityEvents.Service.Interface
 {
     public interface IEventReservationRepository
     {
-        bool AdicionarReserva(EventReservationEntity reserva, int idEvento);
+        Task<bool> AdicionarReserva(EventReservationEntity reserva);
+        Task<IEnumerable<EventReservationEntity>> ConsultaReserva(string nome, string tituloEvento);
+        Task<bool> DeletaReserva(int id);
+        Task<bool> EditarQuantidadeReserva(int id, int quantidade);
 
-        bool EditarQuantidadeReserva(int id, int quantidade);
-
-        bool DeletaReserva(int id);
-
-        void ConsultaReserva(string nome, string tituloEvento);
-    }
+        Task<bool> ValidaStatusEvento(int idEvento);
+     }
 }
