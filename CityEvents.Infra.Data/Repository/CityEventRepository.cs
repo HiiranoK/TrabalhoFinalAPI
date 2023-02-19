@@ -36,7 +36,7 @@ namespace CityEvents.Infra.Data.Repository
             parametros.Add ("local", local);
             parametros.Add("data", data);
             using MySqlConnection conn = new(_stringConnection);
-            return ( conn.Query<CityEventEntity>(query, parametros)).ToList();
+            return (await conn.QueryAsync<CityEventEntity>(query, parametros)).ToList();
         }
 
         public async Task<List<CityEventEntity>> ConsultaPorPrecoEData(decimal precoMin, decimal precoMax, DateTime data)
@@ -47,7 +47,7 @@ namespace CityEvents.Infra.Data.Repository
             parametros.Add("precoMin", precoMin);
             parametros.Add("precoMax", precoMax);
             using MySqlConnection conn = new(_stringConnection);
-            return ( conn.Query<CityEventEntity>(query, parametros)).ToList();
+            return (await conn.QueryAsync<CityEventEntity>(query, parametros)).ToList();
         }
 
         public async Task<List<CityEventEntity>> ConsultaPorTitulo(string titulo)
@@ -57,7 +57,7 @@ namespace CityEvents.Infra.Data.Repository
             DynamicParameters parametros = new();
             parametros.Add("titulo", titulo);
             using MySqlConnection conn = new(_stringConnection);
-            return ( conn.Query<CityEventEntity>(query, parametros)).ToList();
+            return (await conn.QueryAsync<CityEventEntity>(query, parametros)).ToList();
         }
 
         public async Task<bool> EditarEvento(CityEventEntity evento, int id)
@@ -94,7 +94,7 @@ namespace CityEvents.Infra.Data.Repository
             DynamicParameters parametros = new();
             parametros.Add("idEvento", idEvento);
             using MySqlConnection conn = new(_stringConnection);
-            return conn.QueryFirstOrDefault(query, parametros) == null;
+            return await conn.QueryFirstOrDefaultAsync(query, parametros) == null;
         }
     }
 }

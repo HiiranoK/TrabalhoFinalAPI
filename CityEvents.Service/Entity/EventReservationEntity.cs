@@ -8,7 +8,6 @@ namespace CityEvents.Service.Entity
 {
     public class EventReservationEntity
     {
-        public int IdReservation { get; set; }
         public int IdEvent { get; set; }
         public string PersonName { get; set; }
         public int Quantity { get; set; }

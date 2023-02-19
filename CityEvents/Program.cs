@@ -27,9 +27,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(chaveCripto),
                     ValidateIssuer = true,
-                    ValidIssuer = "APIPessoa.com",
+                    ValidIssuer = "APIClientes.com",
                     ValidateAudience = true,
-                    ValidAudience = "CityEvents.com"
+                    ValidAudience = "APIEvents.com"
                 };
             });
 

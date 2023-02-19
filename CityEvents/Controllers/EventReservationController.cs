@@ -1,4 +1,5 @@
-﻿using CityEvents.Service.DTO;
+﻿using CityEvents.Filter;
+using CityEvents.Service.DTO;
 using CityEvents.Service.Entity;
 using CityEvents.Service.Interface;
 using CityEvents.Service.Service;
@@ -25,14 +26,21 @@ namespace CityEvents.Controllers
         [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [TypeFilter(typeof(ExcecaoGeralFilter))]
         public async  Task<ActionResult<IEnumerable<EventReservationDto>>> ConsultaReserva(string nome, string tituloEvento)
         {
-            return Ok(await _eventReservationService.ConsultaReserva(nome, tituloEvento)); 
+            var resposta = await _eventReservationService.ConsultaReserva(nome, tituloEvento);
+            if(!resposta.Any())
+            {
+                return NotFound();
+            }
+            return Ok(resposta);
         }
         [HttpPost]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [TypeFilter(typeof(ExcecaoGeralFilter))]
         public async Task<ActionResult> AdicionarReserva(EventReservationDto reserva)
         {
             if(!await _eventReservationService.AdicionarReserva(reserva))
@@ -46,6 +54,7 @@ namespace CityEvents.Controllers
         [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [TypeFilter(typeof(ExcecaoGeralFilter))]
         public async Task<ActionResult<CityEventDto>> EditarQuantidadeReserva(int id, int quantidade)
         {
             if (!await _eventReservationService.EditarQuantidadeReserva(id,quantidade))
@@ -58,8 +67,9 @@ namespace CityEvents.Controllers
 
         [HttpDelete]
         [Authorize(Roles = "admin")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [TypeFilter(typeof(ExcecaoGeralFilter))]
         public async Task<ActionResult> Deletar([FromQuery] int id)
         {
             if(!await _eventReservationService.DeletaReserva(id))

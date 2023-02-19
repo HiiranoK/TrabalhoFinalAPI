@@ -8,7 +8,6 @@ namespace CityEvents.Service.Entity
 {
     public class CityEventEntity
     {
-        public int idEvent { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DateHourEvent { get; set; }
